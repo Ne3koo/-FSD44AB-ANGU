@@ -45,7 +45,7 @@ queue.push(2);
 queue.push(3);
 queue.push(4);
 
-console.log(queue.pop()) // affiche 4
+console.log(queue.pop()) // affiche 1
 
 let queueArray = new Queue<number[]>();
 queueArray.push([1, 2]);
@@ -53,7 +53,7 @@ queueArray.push([3, 4]);
 queueArray.push([5, 6]);
 queueArray.push([7, 8]);
 
-console.log(queueArray.pop()); // affiche [7, 8]
+console.log(queueArray.pop()); // affiche [1, 2]
 ```
 
 ## Exercice 5.2 (TP)
