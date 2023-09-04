@@ -36,8 +36,8 @@ function decorator(wrapped) {
         return result;
     };
 }
-const wrapped = decorator(showName);
-console.log(wrapped('Graham'));
+const wrapper = decorator(showName);
+console.log(wrapper('Graham'));
 ```
 
 
