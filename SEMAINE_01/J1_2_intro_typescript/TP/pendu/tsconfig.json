@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "outDir": "./build", // dossier de compilation
+    "target": "es5", // cible
+    "module": "commonjs"
+  },
+  "exclude" : ["node_modules"] // exclure le dossier node_modules de la compilation
+}
