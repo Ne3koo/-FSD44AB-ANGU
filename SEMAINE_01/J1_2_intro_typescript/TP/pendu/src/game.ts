@@ -15,13 +15,13 @@ export class Game {
         this._words = words;
     }
 
-    run() {
+    run(): void {
         prompt.start();
 
         this._loop();
     }
 
-    private _loop() {
+    private _loop(): void {
         let currentWord: Word = this._words[this._currentIndex];
         this._currentGuess ??= currentWord.hide;
         
@@ -50,7 +50,7 @@ export class Game {
         }
     }
 
-    private _input(err, result) {
+    private _input(err, result): void {
         let currentWord: Word = this._words[this._currentIndex];
         let goodAttempt: boolean = false;
 
