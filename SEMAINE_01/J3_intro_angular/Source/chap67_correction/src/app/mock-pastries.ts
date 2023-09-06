@@ -1,4 +1,4 @@
-import { Pastrie } from './pastrie';
+import { Pastrie, List } from './pastrie';
 
 export const PASTRIES: Pastrie[] = [
     {
@@ -93,7 +93,7 @@ export const PASTRIES: Pastrie[] = [
         "name": "Tarte poire chocolat",
         "description": "Nostrud veniam dolor velit id occaecat cupidatat aliquip exercitation id aliqua nostrud. Ad mollit Lorem consectetur minim consequat est eiusmod deserunt pariatur est ullamco. Veniam anim veniam Lorem excepteur irure. Esse adipisicing nulla in incididunt. Consectetur fugiat exercitation aliquip excepteur ipsum ullamco ullamco magna commodo.\r\n",
         "url": "http://placehold.it/32x32",
-        "quantity": 5,
+        "quantity": 0,
         "order": 7,
         "tags": [
             "sucré",
@@ -110,7 +110,7 @@ export const PASTRIES: Pastrie[] = [
         "name": "Banana au chocolat",
         "description": "Nostrud veniam dolor velit id occaecat cupidatat aliquip exercitation id aliqua nostrud. Ad mollit Lorem consectetur minim consequat est eiusmod deserunt pariatur est ullamco. Veniam anim veniam Lorem excepteur irure. Esse adipisicing nulla in incididunt. Consectetur fugiat exercitation aliquip excepteur ipsum ullamco ullamco magna commodo.\r\n",
         "url": "http://placehold.it/32x32",
-        "quantity": 3,
+        "quantity": 1,
         "order": 8,
         "tags": [
             "chocolat",
@@ -121,3 +121,85 @@ export const PASTRIES: Pastrie[] = [
     },
 ];
 
+
+// Pensez à définir la classe List pour définir la liste des ingrédients des pâtisseries ci-dessous :
+export const INGREDIENTS_LISTS: List[]  = [
+    {
+      "id": "1",
+      "list": [
+        "ad",
+        "qui",
+        "deserunt",
+        "nulla",
+        "cupidatat"
+      ]
+    },
+    {
+      "id": "2",
+      "list": [
+        "ipsum",
+        "nostrud",
+        "aliqua",
+        "sunt"
+      ]
+    },
+    {
+      "id": "3",
+      "list": [
+        "et",
+        "qui",
+        "consectetur",
+        "reprehenderit",
+        "sunt",
+        "Lorem",
+        "laborum"
+      ]
+    },
+    {
+      "id": "4",
+      "list": [
+        "nulla",
+        "velit",
+        "do"
+      ]
+    },
+    {
+      "id": "5",
+      "list": [
+        "exercitation",
+        "magna",
+        "deserunt",
+        "fugiat",
+        "eu",
+        "irure",
+        "dolore"
+      ]
+    },
+    {
+      "id": "6",
+      "list": [
+        "sint",
+        "minim",
+        "nisi",
+        "labore",
+        "consequat",
+        "duis",
+        "elit"
+      ]
+    },
+    {
+      "id": "7",
+      "list": [
+        "in",
+        "nostrud",
+        "deserunt"
+      ]
+    },
+    {
+      "id": "8",
+      "list": [
+        "in",
+        "nostrud"
+      ]
+    }
+  ];
