@@ -1,0 +1,14 @@
+<div class="card" *ngIf="pastrie">
+    <img class="card-img-top" src="{{ pastrie.url }}" alt="{{pastrie.name}}">
+    <div class="card-body">
+        <h5 class="card-title">{{pastrie.ref}}</h5>
+        <p class="card-text">{{pastrie.name}}</p>
+        <span *ngIf="prefered">[Priority]</span>
+        <button class="btn btn-primary" (click)="preference()" [disabled]="disablePreference">Choisir</button>
+        <button class="btn btn-primary" (click)="hide()">Hide</button>
+        <button class="btn btn-primary" (click)="modifyIngredientsOrder()">{{ currentOrder ? "⇩" : "⇧" }}</button>
+    </div>
+    <ul class="list-group" *ngIf="ingredientsList && ingredientsList.length > 0">
+        <li class="list-group-item" *ngFor="let ingredient of ingredientsList">{{ ingredient }}</li>
+    </ul>
+</div>
