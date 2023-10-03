@@ -54,3 +54,8 @@ ng g c scroller --module app
 * En modifiant le CSS, faites en sorte que la liste puisse scroller verticalement indépendamment de la page
 * Faites en sorte que lorsque l'utilisateur scroll au bas de cette liste, on charge une nouvelle pâtisserie
 On utilisera **fromEvent** de rxjs pour l'événement *scroll*
+
+# Tâche supplémentaire
+
+Utilisez les **Promise** ou les **Observable** pour faire en sorte que le service **PastriesService** renvoie la nouvelle pâtisserie avec un délai d'une seconde. On simule ici le temps de réponse d'un serveur.
+Affichez un voile noir d'opacité 0.5 par-dessus la liste pendant le chargement d'un nouvel élément.
