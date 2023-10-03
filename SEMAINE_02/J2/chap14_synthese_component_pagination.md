@@ -37,3 +37,20 @@ de pâtisseries par page)), total (nombre total de pâtisseries), ...
 Le component enfant PaginateComponent mettra à jour le nombre de pâtisseries à
 afficher sur la page « pastries ».
 
+## Exercice
+
+Créez une page avec la liste des pâtisseries en lazy loading.
+
+Pour ce faire, vous respecterez les étapes suivantes dans l'ordre :
+* Encapsulez l'affichage d'une ligne de **pastries.component.html** dans un nouveau composant *pastrie-inline*
+```bash
+ng g c pastrie-inline --module app
+```
+* Créez une nouvelle page avec une nouvelle route */scroller* dans laquelle vous affichez une liste de toutes les pâtisseries
+```bash
+ng g c scroller --module app
+```
+* Limitez le nombre de pâtisseries affichées à 4
+* En modifiant le CSS, faites en sorte que la liste puisse scroller verticalement indépendamment de la page
+* Faites en sorte que lorsque l'utilisateur scroll au bas de cette liste, on charge une nouvelle pâtisserie
+On utilisera **fromEvent** de rxjs pour l'événement *scroll*
