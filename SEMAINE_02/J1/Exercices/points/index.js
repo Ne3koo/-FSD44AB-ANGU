@@ -12,8 +12,12 @@ const source = of(
 // Mapping data  TODO Filtre
 
 const sourcePipe = source.pipe(
-    max((a, b) =>  Math.sqrt( a.x**2 + a.y**2) < Math.sqrt( b.x**2 + b.y**2)  )
+    max(compareDistance)
 )
+
+const compareDistance = (a, b) => {
+    return Math.sqrt( a.x**2 + a.y**2) < Math.sqrt( b.x**2 + b.y**2);
+}
 
 // S'inscrire TODO Afficher les données
 sourcePipe.subscribe(console.log)
