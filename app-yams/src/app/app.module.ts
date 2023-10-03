@@ -10,12 +10,16 @@ import { PastryTagColorPipe } from './pastry-tag-color.pipe';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { PastrieDescriptionComponent } from './pastrie-description/pastrie-description.component';
+import { PaginateComponent } from './paginate/paginate.component';
+import { ScrollerComponent } from './scroller/scroller.component';
+import { PastrieInlineComponent } from './pastrie-inline/pastrie-inline.component';
 
 // définission de la constante pour les routes
 const pastriesRoutes: Routes = [
   {
       path: 'pastries',
-      component: PastriesComponent
+      component: PastriesComponent,
+      title: "Liste des pâtisseries"
   },
   {
       path: '',
@@ -23,12 +27,24 @@ const pastriesRoutes: Routes = [
       pathMatch: 'full'
   },
   {
+      path: 'pastries/:index',
+      component: PastriesComponent,
+      title: "Liste des pâtisseries"
+  },
+  {
       path: 'login',
-      component: LoginComponent
+      component: LoginComponent,
+      title: "Connexion"
   },
   {
       path: 'pastrie/:id',
-      component: PastrieDescriptionComponent
+      component: PastrieDescriptionComponent,
+      title: "Pâtisserie"
+  },
+  {
+      path: 'scroller',
+      component: ScrollerComponent,
+      title: "Liste"
   },
 ];
 
@@ -40,7 +56,10 @@ const pastriesRoutes: Routes = [
     BorderCardDirective,
     PastryTagColorPipe,
     LoginComponent,
-    PastrieDescriptionComponent
+    PastrieDescriptionComponent,
+    PaginateComponent,
+    ScrollerComponent,
+    PastrieInlineComponent
   ],
   imports: [
     BrowserModule,

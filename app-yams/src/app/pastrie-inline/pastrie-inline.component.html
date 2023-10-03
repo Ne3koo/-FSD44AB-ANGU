@@ -1,0 +1,29 @@
+<li class="list-inline-item" *ngIf="pastrie">
+    <div class="card" appBorderCard="blue">
+        <div class="card-header">
+            {{ pastrie.ref }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">
+                <a class="text-info" routerLink="/pastrie/{{pastrie.id}}">{{ pastrie.name }}</a>
+            </h5>
+            <p class="card-text">{{ pastrie.description }}</p>
+
+            <ul class="d-flex list-unstyled" *ngIf="pastrie.tags && pastrie.tags.length > 0" >
+                <li *ngFor="let tag of pastrie.tags" >
+                    <span class="badge {{tag | pastryTagColor }}">{{ tag }}</span>
+                </li>
+            </ul>
+
+            <img class="glyph-icon" src="./assets/svg/si-glyph-heart.svg" />
+            <small>{{ pastrie.like }}</small>
+            <img class="glyph-icon" src="./assets/svg/si-glyph-triangle-double-arrow-right.svg" />
+            <small [ngPlural]="pastrie.quantity">
+                <ng-template ngPluralCase="=0">Aucune unité disponible</ng-template>
+                <ng-template ngPluralCase="=1">Une unité disponible</ng-template>
+                <ng-template ngPluralCase="other">{{ pastrie.quantity }} unités disponibles</ng-template>                                
+            </small>
+        </div>
+    </div>
+    
+</li>

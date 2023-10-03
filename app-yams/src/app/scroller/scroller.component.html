@@ -1,0 +1,4 @@
+<ul *ngIf="pastries" class="list-inline">
+    <app-pastrie-inline  
+        *ngFor="let pastrie of pastries" [pastrie]="pastrie"></app-pastrie-inline>
+</ul>

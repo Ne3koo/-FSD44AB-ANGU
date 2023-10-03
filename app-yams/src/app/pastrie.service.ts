@@ -16,7 +16,14 @@ export class PastrieService {
   }
 
   getPastrie(id: string): Pastrie | undefined{
-    return PASTRIES.find((pastry: Pastrie) => pastry.id === id);
+    return this.getPastries().find((pastry: Pastrie) => pastry.id === id);
+  }
+
+  getPastrieByIndex(index: number): Pastrie | undefined{
+    if (index < PASTRIES.length) {
+      return PASTRIES[index];
+    }
+    return undefined;
   }
 
   getPastrieIngredientsList(id: string): List | undefined {
@@ -27,8 +34,14 @@ export class PastrieService {
     return PASTRIES.length;
   }
 
-  private paginate(start: number, end: number):Pastrie[]{
+  paginate(start: number, end: number):Pastrie[]{
     return this.getPastries().slice(start, end);
+  }
+  
+  asyncPaginate(start: number, end: number):Promise<Pastrie[]>{
+    return new Promise((resolve, reject) => {
+      setTimeout(() =>  resolve(this.getPastries().slice(start, end)), 1000);      
+    });
   }
 
   getTotalPages():number {

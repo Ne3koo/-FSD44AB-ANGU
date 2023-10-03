@@ -1,0 +1,13 @@
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li [ngClass]="getPreviousClass()">
+            <a class="page-link" routerLink="/pastries/{{currentPageIndex - 1}}" tabindex="-1">Previous</a>
+        </li>
+        <li [ngClass]="getPageClass(iPage)" *ngFor="let iPage of getPageNumbers()">
+            <a class="page-link" routerLink="/pastries/{{iPage}}">{{ iPage + 1 }}</a>
+        </li>
+        <li [ngClass]="getNextClass()">
+            <a class="page-link" routerLink="/pastries/{{currentPageIndex + 1}}">Next</a>
+        </li>
+    </ul>
+</nav> 
