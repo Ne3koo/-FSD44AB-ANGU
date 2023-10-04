@@ -9,7 +9,7 @@
             (changePreference)="onPastrieChoice()"></app-pastrie-details>
     </div>
     <div class="col-sm-8 pastrie">
-        <app-paginate></app-paginate>
+        <app-paginate [pastries]="allPastries"></app-paginate>
         <!--  <button type="button" class="btn btn-lg btn-danger">You are in an anonymous mode.</button> -->
         
         <ul *ngIf="pastries" class="list-inline">

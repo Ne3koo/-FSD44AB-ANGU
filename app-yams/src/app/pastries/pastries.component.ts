@@ -6,6 +6,7 @@ import { Pastrie } from '../pastrie';
 import { PASTRIES } from '../mock-pastries';
 import { PastrieService } from '../pastrie.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-pastries',
@@ -13,6 +14,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./pastries.component.scss']
 })
 export class PastriesComponent {
+  allPastries: Pastrie[] = [];
   pastries: Pastrie[] = [];
   selectedPastrie?: Pastrie;
   chosenPastries: Pastrie[] = [];
@@ -25,17 +27,29 @@ export class PastriesComponent {
   }
   
   ngOnInit() {
-    this.pastries = this.pastrieService.getPastriesPage(this.currentPageIndex);
-
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if (paramMap.get('index') !== null) {
-        let iPage: number = parseInt(paramMap.get('index') as  string);
-        if (iPage >= 0 && iPage < this.pastrieService.getTotalPages()) {
-          this.currentPageIndex = iPage;
-          this.pastries = this.pastrieService.getPastriesPage(this.currentPageIndex);
-        }
+    this.pastrieService.getPastries()
+    .subscribe(
+      result => {
+        this.allPastries = result;
+        this.pastries = this.allPastries.slice(0, PastrieService.PASTRIES_PER_PAGE);
+        
+        this.route.paramMap.subscribe((paramMap: ParamMap) => this.onParamMapChanged(paramMap));
+        this.onParamMapChanged(this.route.snapshot.paramMap);
       }
-    });
+    )
+  }
+
+  onParamMapChanged(paramMap: ParamMap) {
+    if (paramMap.get('index') !== null && this.allPastries) {
+      let iPage: number = parseInt(paramMap.get('index') as  string);
+      if (iPage >= 0 && iPage < this.allPastries.length / PastrieService.PASTRIES_PER_PAGE) {
+        this.currentPageIndex = iPage;
+        this.pastries = this.allPastries.slice(
+          iPage * PastrieService.PASTRIES_PER_PAGE,
+          (iPage + 1) * PastrieService.PASTRIES_PER_PAGE
+          );
+      }
+    }
   }
   
   onSelect(pastrie: Pastrie) {

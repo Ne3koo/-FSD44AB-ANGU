@@ -29,13 +29,21 @@ export class ScrollerComponent {
       let offsetHeight: number = this.elementRef.nativeElement.offsetHeight;
 
       if (scrollTop > scrollHeight - offsetHeight - 20) {
-        let newPastry: Pastrie | undefined = this.pastrieService.getPastrieByIndex(this._listEnd);
-        if (newPastry) {
-          this.pastries.push(newPastry);
-          this._listEnd++;
-        }
-      }
-      
+        this.elementRef.nativeElement.className = "wait";
+        this.pastrieService.getPastrieByIndexAsync(this._listEnd)
+          .then((newPastry: Pastrie) => {
+            if (newPastry) {
+              this.pastries[this.pastries.length - 1] = newPastry;
+              this._listEnd++;
+            }
+            this.elementRef.nativeElement.className = "";
+          })
+          .catch(() => {
+            this.elementRef.nativeElement.className = "";
+          });
+          
+      };
+            
     })
   }
 }

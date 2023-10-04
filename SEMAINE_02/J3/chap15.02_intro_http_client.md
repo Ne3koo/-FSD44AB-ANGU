@@ -100,7 +100,7 @@ export class PastrieService {
         return this.http.get<Pastrie[]>(this.pastriesUrl , httpOptions).pipe(
             // Ordonnez les pâtisseries par ordre de quantités décroissantes
             map(pastries => {
-                return this._pastries.sort(
+                return pastries.sort(
                     (a, b) => {
                         return b.quantity - a.quantity
                     }

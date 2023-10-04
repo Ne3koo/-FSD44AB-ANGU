@@ -238,7 +238,7 @@ import mongoose from "mongoose";
 
 // Connexion à la base de données
 mongoose
-  .connect("mongodb://localhost:27017/yams", {
+  .connect("mongodb://127.0.0.1:27017/yams", {
     useNewUrlParser: true,
     useUnifiedTopology: true, // options qui évitent des warnings inutiles
   })
@@ -278,7 +278,7 @@ Une fois le modèle créé vous pouvez par exemple vous en servir pour créer un
 
 ```js
 // Création d'une instance de document
-data = {
+const data = {
   ref: "Pâtisserie",
   name: "Tarte poire chocolat",
   description:
@@ -294,7 +294,7 @@ const Pastrie = new PastrieModel({ ...data });
 
 // Sauvegarde du document en base
 try {
-  await Pastrie.save();
+  const doc = await Pastrie.save();
   console.log(doc);
 } catch (err) {
   console.error(err.message);
@@ -330,7 +330,7 @@ import mongoose from "mongoose";
 
 // Connexion à la base de données
 mongoose
-  .connect("mongodb://localhost:27017/yams", {
+  .connect("mongodb://127.0.0.1:27017/yams", {
     useNewUrlParser: true,
     useUnifiedTopology: true, // options qui évitent des warnings inutiles
   })
@@ -338,7 +338,7 @@ mongoose
 
 async function init() {
   // Création d'un schéma
-  const PastriesSchema = new mongoose.Schema({
+  const CatsSchema = new mongoose.Schema({
     name: String,
     date: { type: Date, default: Date.now },
   });
