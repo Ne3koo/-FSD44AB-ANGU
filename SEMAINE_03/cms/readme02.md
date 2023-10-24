@@ -17,7 +17,7 @@ Connecter votre application Angular à votre API afin d'afficher les données pr
 Sur la route `/admin`, affichez un formulaire en plusieurs sections permettant de 
 * choisir quel article sera mis à la une (un `select` suffit)
 * modifier un article au choix
-* modifier la bio de l'utilisateur connecté
+* modifier la bio des auteurs/users
 
 Mettre un bouton de validation pour chaque section.
 
