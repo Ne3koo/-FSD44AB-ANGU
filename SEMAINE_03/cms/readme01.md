@@ -1,5 +1,5 @@
 # Projet CMS
-Dans ce projet, nous allons créer un petit CMS permettant de créer, enregistrer et afficher des articles de blog. Le site comprendra une page d'accueil, une page article et une page d'administration permettant de modifier le contenu.
+Dans ce projet, nous allons créer un petit CMS permettant de créer, modifier et afficher des articles de blog. Le site comprendra une page d'accueil, une page article, une page auteur·rice et une page d'administration permettant de modifier le contenu.
 Côté serveur, nous utiliserons la stack NodeJS + Express + MongoDB pour stocker et envoyer les articles.
 
 ## Angular
