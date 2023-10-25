@@ -38,3 +38,9 @@ Créer deux routes Angular `/login` et `/signup` ainsi que deux formulaires pour
 
 Lorsque l'utilisateur est connecté afficher son nom sur toutes les pages, dans le bandeau de tête du site. N'afficher le lien vers la page d'administration que si l'utilisateur est connecté.
 Dans `server.ts`, décommenter le code qui restreint l'accès à `/admin` : lorsqu'un utilisateur est connecté, il peut accéder à la route `/admin`, sinon le serveur Express redirige vers `/login`. 
+
+Présélectionner l'utilisateur connecté comme auteur·ice d'un nouvel article créé.
+
+Lorsque l'utilisateur est connecté, ajouter un bouton "éditer" (ou une icône de crayon) sur chaque article ou auteur·rice. Le clic sur ce bouton envoie directement dans la partie concernée de l'admin.
+
+[Optionnel] Créer la route côté API pour la déconnexion d'un utilisateur et ajouter un bouton dans l'en-tête.
