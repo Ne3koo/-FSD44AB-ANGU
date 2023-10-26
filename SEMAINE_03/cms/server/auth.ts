@@ -47,7 +47,9 @@ passportInstance.use('local', new LocalStrategy((username, password, done) => {
   
 }));
 
-passportInstance.use('local-signup', new LocalStrategy((username, password, done) => {
+passportInstance.use('local-signup', new LocalStrategy(
+  {passReqToCallback : true},
+  (req, username, password, done) => {
   UserModel.findOne({ username }).then((user) => {    
     if (user) {
       return done(null, false, {message: "Un utilisateur avec le même nom existe déjà"});
@@ -57,6 +59,7 @@ passportInstance.use('local-signup', new LocalStrategy((username, password, done
       
       // set the user's local credentials
       newUser.username = username;
+      newUser.bio = req.body.bio;
       newUser.salt = crypto.randomBytes(16);
       crypto.pbkdf2(password, newUser.salt, 310000, 32, 'sha256', (err: any, hashedPassword: string) => {
         newUser.hashed_password = Buffer.from(hashedPassword);
