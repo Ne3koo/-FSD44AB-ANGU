@@ -1,0 +1,25 @@
+<!-- movie.component.html -->
+<div *ngIf="state === State.Waiting">
+    <img src="loading.gif" alt="Chargement en cours..." /> <!-- Affichez un gif de chargement ici -->
+  </div>
+  
+  <div *ngIf="state === State.Read">
+    <h2>{{ movie.title }}</h2>
+    <p>Réalisateur : {{ movie.director }}</p>
+    <p>Année : {{ movie.year }}</p>
+    <p>Durée : {{ movie.duration }} minutes</p>
+    <button (click)="startEdit()">Éditer</button>
+    <button (click)="deleteMovie()">Supprimer</button>
+  </div>
+  
+  <div *ngIf="state === State.Edit">
+    <!-- Formulaire d'édition avec Reactive Forms ici -->
+    <form [formGroup]="movieForm" (ngSubmit)="saveEdit()">
+      <label for="title">Titre :</label>
+      <input type="text" id="title" formControlName="title" />
+      <!-- ... autres champs du formulaire -->
+      <button type="submit">Valider</button>
+      <button (click)="cancelEdit()">Annuler</button>
+    </form>
+  </div>
+  
